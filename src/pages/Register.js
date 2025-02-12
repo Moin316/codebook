@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { useTitle } from "../hooks/useTitle";
-import { register } from '../services';
+
 
 export const Register = () => {
   useTitle("Register");
@@ -9,17 +8,18 @@ export const Register = () => {
 
   async function handleRegister(event){
     event.preventDefault();
-    try{
-      const authDetail = {
-        name: event.target.name.value,
-        email: event.target.email.value,
-        password: event.target.password.value
-      }
-      const data = await register(authDetail);
-      data.accessToken ? navigate("/products") : toast.error(data);
-    } catch(error){
-      toast.error(error.message, {closeButton: true, position: "bottom-center"});
-    }
+    // try{
+    //   const authDetail = {
+    //     name: event.target.name.value,
+    //     email: event.target.email.value,
+    //     password: event.target.password.value
+    //   }
+    //   const data = await register(authDetail);
+    //   data.accessToken ? navigate("/products") : toast.error(data);
+    // } catch(error){
+    //   toast.error(error.message, {closeButton: true, position: "bottom-center"});
+    // }
+    navigate("/products");
   }
 
   return (
