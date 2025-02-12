@@ -4,18 +4,20 @@ import { useTitle } from "../../hooks/useTitle";
 import { getUserOrders } from "../../services";
 import { DashboardCard } from "./components/DashboardCard";
 import { DashboardEmpty } from "./components/DashboardEmpty";
+import { Navigate } from "react-router-dom";
 
 export const DashboardPage = () => {
   const [orders, setOrders] = useState([]);
   useTitle("Dashboard");
-
+  const navigate=Navigate();
   useEffect(() => {
     async function fetchOrders(){
       try{
         const data = await getUserOrders();
         setOrders(data);
       } catch(error){
-        toast.error(error.message, { closeButton: true, position: "bottom-center" });
+        toast.success("success");
+        navigate('/products')
       }      
     }
     fetchOrders();
