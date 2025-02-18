@@ -18,7 +18,7 @@ export const Checkout = ({setCheckout}) => {
         } catch(error){
             toast.success("success");
             clearCart();
-            navigate('/products')
+            navigate('/products');
         }        
     }
     fetchData();
@@ -32,7 +32,7 @@ export const Checkout = ({setCheckout}) => {
         navigate("/order-summary", { state: {data: data, status: true} });
     } catch(error) {
         toast.success('success');
-        navigate("/order-summary", { state: {status: true} });
+        navigate("/order-summary", { state: {status: true} })
     }
   }
 
@@ -78,8 +78,8 @@ export const Checkout = ({setCheckout}) => {
                             ${total}
                         </p>
                         <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700" >
-                            <i className="mr-2 bi bi-lock-fill"></i>PAY NOW
-                        </button>
+                            <i className="mr-2 bi bi-lock-fill"></i>PAY NOW 
+                        </button> 
                     </form>
                 </div>
                 </div>
